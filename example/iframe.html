@@ -1,0 +1,27 @@
+<div>
+  Hey I am iframe
+</div>
+
+<script type="text/javascript">
+  window.parent.postMessage({
+    eventType:'incoming',
+    data: {
+      a: "Some Json Data",
+      b: "From Iframe"
+    }
+  }, '*');
+
+  setTimeout(() => {
+    window.parent.postMessage({
+  		eventType:'incoming',
+  		data: {
+        a: "Some Json Data after 5 sec",
+        b: "From iframe"
+      }
+  	}, '*');
+  }, 5000)
+
+  window.addEventListener('message', (d) => {
+    console.log(d)
+  })
+</script>

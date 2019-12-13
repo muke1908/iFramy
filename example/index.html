@@ -1,0 +1,22 @@
+<div id="example"></div>
+<script type="text/javascript" src="../dist/bundle.js"></script>
+<script type="text/javascript">
+    function handleIncomingMessage(d) {
+      console.log('Message from Iframe, eventType: incoming', d);
+    }
+
+    function onLoadHandler() {
+      console.log('iframe load finished');
+    }
+
+    IFRAME_HOST.mount({
+      containerId: "example",
+      url: "./iframe.html",
+      debug: true,
+      eventHandlers: {
+        incoming: handleIncomingMessage
+      },
+      onLoad: onLoadHandler,
+      targetOrigin:"entify"
+    })
+</script>
