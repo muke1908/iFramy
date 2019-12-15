@@ -38,7 +38,7 @@ There is a default handler in `iFramy` to set height. You can check height in yo
 and send it back to parent by:
 ```
 window.addEventListener("resize", ()=> {
-  // get height
+  // get and set height
   window.parent.postMessage({
     eventType: 'setHeight',
     data: { height }
